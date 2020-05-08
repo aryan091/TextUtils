@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>TextUtils.in</title>
+     <style>
+		.footer {
+   		position: fixed;
+   		left: 0;
+   		bottom: 0;
+   		width: 100%;
+   		background-color: black;
+   		color: white;
+   		text-align: center;
+   		display: block;
+		}
+	</style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -43,7 +55,7 @@
   </button>
 </div>
 <div class="container">
-    <form action="/analyze" method="post"> {% csrf_token %}
+    <form action="/analyze" method="post">{% csrf_token %}
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Enter your text here</label>
     <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="10"></textarea>
@@ -74,6 +86,12 @@
     <button type="Submit" class="btn btn-dark">Analyze Text</button>
 </form>
 </div>
+    <footer class="footer">
+  <div class="container">
+    <span class="text-light">&#169 2019 Textutils.in </span>
+  </div>
+</footer>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
