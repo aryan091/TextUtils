@@ -9,6 +9,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>TextUtils.com</title>
+        <style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+   display: block;
+}
+#corner-btn{
+  position: absolute;
+  right: 0;
+  top: 15px;
+  padding: 4px;
+}
+</style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -42,18 +60,51 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+
 <div class="container">
     <h1>Your Analyzed Text - {{ purpose }}</h1>
+<div style="position:relative;" class="bg-light">
 <p>
-
-  <pre>{{ analyzed_text }}</pre>
-
+    <button id="corner-btn" class="btn btn-outline-primary" onclick="copy()">
+        Copy
+    </button>
+  <pre id="copy-text" class="p-4 mx-2"><h2>{{ analyzed_text }}</h2></pre>
 </p>
 </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <span class="text-light">&#169 2019 Textutils.in </span>
+  </div>
+</footer>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+      <script>
+      function copy() {
+        // copied from https://stackoverflow.com/questions/36639681/how-to-copy-text-from-a-div-to-clipboard
+        if (document.selection) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(document.getElementById("copy-text"));
+    range.select().createTextRange();
+    document.execCommand("copy");
+
+  } else if (window.getSelection) {
+    var range = document.createRange();
+    range.selectNode(document.getElementById("copy-text"));
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+    alert('Text Copied')
+
+  }
+
+      }
+    </script>
+
+
   </body>
 </html>
